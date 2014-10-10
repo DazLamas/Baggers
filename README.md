@@ -1,13 +1,13 @@
 #IN PROCCES:
 
-##Message Panel:
+##1.Message Panel:
 
-##1. Refact sendButton function
+##a. Refact sendButton function
 
-##Users Geolocation Map
+##2.Users Geolocation Map
 
-##2. AJAX call function for JSON
-##3. Fix map file
+##a. AJAX call function for JSON
+##b. Fix map file
 
 #TO DO'S 
 ###- Change new messages order (from bottom to top)
