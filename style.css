@@ -36,12 +36,19 @@ header button {
 	background-color: rgba(0, 0, 0, 0);
 	border: 0;
 }
+header a:hover {
+	color: white;
+	border: 1px solid white;
+}
 .floatR {
     float: right;
     margin: 25px 45px;
 }
 .floatL {
 	float: left;
+}
+.floatR-nonMargin {
+	float: right;
 }
 .boton {
 	border: solid 1px #696969;
@@ -56,6 +63,9 @@ nav {
 	width: 100%;
 	background-color: rgb(25,20,20)
 }
+nav a:hover {
+	color: #708090;
+}
 .menu li {
 	display: inline-block;
 	color: #696969;
@@ -65,9 +75,6 @@ nav {
 nav img {
 	height: 30px;
 	padding-right: 30px;
-}
-.floatR-nonMargin {
-	float: right;
 }
 article {
 	display: inline-block;
@@ -80,7 +87,7 @@ article {
 	height: 40px;
 	width: 600px;
 }
-.btn-search {
+button {
 	border: solid 1px #696969;
 	border-radius: 30px;
 	background-color: white;
@@ -98,38 +105,32 @@ article {
  	border-bottom: solid 2px #c9c9c9;
  }
 #contactPanel{
-	margin: 0 auto;
-	width: 700px;
-	height: 1000px;
+	margin: 50 auto;
+	width: 350px;
+	height: 700px;
 	text-align: center;
 }
-.contact {
-	display: inline-block;
+.contact h5 {
+	font-size: 15px;
+	font-style: bold;
+	color: #800000;
 }
-.avatar {
+.contact h4 {
+	font-size: 16px;
+	color: #708090;
+	font-style: none;
+}
+.contact p {
+	font-size: 15px;
+	color: #708090;
+	max-width: 200px;
+}
+.contact img {
 	display: inline;
 	border-radius: 100px;
-}
-.message {
-	display: inline;
-	float: right;
-	margin-top: 7px;
-	margin-left: 10px;
-	width: 200px;
-	padding: 10px;
-	border: solid 1px black;
-	border-radius: 30px;
-	text-align: left;
-}
-.message h5 {
-	margin-bottom: 15px;
-	text-align: right;
-	font-size: 10px;
-}
-#formulario {
 	height: 100px;
+	float: left;
 }
-
 
 
 
