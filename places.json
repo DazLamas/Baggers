@@ -1,0 +1,32 @@
+{
+    "points": [
+        {
+            "name": "Bar 1",
+            "description": "descripción del Bar",
+            "contact": "telephone web site",
+            "lat": 40.4003,
+            "lon": -3.6863
+        },
+        {
+            "name": "Bar 2",
+            "description": "descripción del Bar",
+            "contact": "telephone web site",
+            "lat": 40.4103,
+            "lon": -3.7063
+        },
+        {
+            "name": "Bar 3",
+            "description": "descripción del Bar",
+            "contact": "telephone web site",
+            "lat": 40.4203,
+            "lon": -3.6863
+        },
+        {
+            "name": "Bar 4",
+            "description": "descripción del Bar",
+            "contact": "telephone web site",       
+            "lat": 40.4103,
+            "lon": -3.6563
+        }
+    ]
+}
