@@ -11,7 +11,7 @@ sendButton.onclick = function (){
 	var divBubble = document.createElement('div');
 
 	var userImg = document.createElement('img');
-	userImg.src = 'img/avatar_guest.png';
+	userImg.src = '../img/avatar_guest.png';
 
 	var nameH5 = document.createElement('h5');
 	var cityH4 = document.createElement('h4');

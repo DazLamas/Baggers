@@ -11,7 +11,7 @@ function initialize() {
 		var lon = pos.coords.longitude;
 		var myLatlng = new google.maps.LatLng(lat, lon);
 		
-		var losers = {
+		/*var losers = {
 			points: []
 		};
 
@@ -25,7 +25,7 @@ function initialize() {
 		  data: {"losers": losers},
 		  success: function(data){console.log(data)},
 		  dataType: 'json'
-		});
+		});*/
 
 		// Objeto literal creado para la realización de las distintas opciones del mapa.
 	    var mapOptions = {
@@ -74,8 +74,9 @@ function initialize() {
        	         var marker = new google.maps.Marker({
        	         position: myLatlng,
        	         map: map,
-       	         title: "mochilerillo"
+       	         title: "mochilerillo"});
       	         
+      	         //Esto tiene que venir del input
       	         var contentString = '<div>'+
       				'<h1>'+value.name+'</h1>'+
       				'<div>'+
@@ -107,7 +108,7 @@ function initialize() {
 	navigator.geolocation.getCurrentPosition(success, error, options);
 
  	 
-
+}
 
 
 
