@@ -15,6 +15,12 @@ get '/' do
 
 end
 
+get '/#exactPoint' do
+
+	erb :index
+
+end
+
 get '/map' do
 
   erb :map
@@ -26,13 +32,13 @@ end
 
 
 
-arr = []
+#arr = []
 
-get "/" do
+#get "/" do
 
-	json = File.read('losers.json')
-	arr = JSON.parse(json)
+#	json = File.read('losers.json')
+#	arr = JSON.parse(json)
 
-end
+#end
 
 

@@ -1,0 +1,13 @@
+body { 
+    background-image: url('../img/city.jpg');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    margin: 0; 
+    padding: 0;
+}
+
+#map_canvas {
+    width: 800px; 
+    height: 700px;
+    margin: 40 auto;
+}

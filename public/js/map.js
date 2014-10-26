@@ -41,7 +41,6 @@ function initialize() {
 		var marker = new google.maps.Marker({
       		 position: myLatlng,
      		 map: map,
-     		 
  		});
 
 		var contentString = '<div>'+
@@ -66,7 +65,7 @@ function initialize() {
 
   	  	$.ajaxSetup({cache: false});
 
- 		$.getJSON('places.json', function(data) { 
+ 		$.getJSON('points.json', function(data) { 
      	       $.each( data.points, function(i, value) {
 	
       	         var myLatlng = new google.maps.LatLng(value.lat, value.lon);
