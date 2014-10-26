@@ -44,10 +44,10 @@ function initialize() {
  		});
 
 		var contentString = '<div>'+
-      		'<h1>Tú</h1>'+
+      		'<h1>You</h1>'+
       		'<div>'+
-      		'<p>Hi! Anyone for a beer?</p>'+
-      		'<p>Country: Canada <a href="http://twitter.com">'+
+      		'<p>Write a message</p>'+
+      		'<p>Country: Spain <a href="http://twitter.com">'+
       		'Twitter</a>' +
       		'</p>'+
       		'</div>'+

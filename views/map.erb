@@ -6,10 +6,57 @@
         <script type="text/javascript" src="../js/map.js"></script>
         <link rel="stylesheet" href="../css/common.css">
         <link rel="stylesheet" href="../css/map.css">
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/bubble.css">
     </head>
     <body onload="initialize()">
-        <form id="form1" runat="server">
-            <div id="map_canvas"></div>
-        </form>
+        <article>
+            <div class="mensajes">
+
+              <section class="inputContainer">
+                <input type="text" class="input" placeholder="Choose your city">
+                <button class="btn">Search</button>
+              </section>
+              <section class="inputContainer">
+                <input type="text" id="name" placeholder="Name" maxlength="10">
+                <input type="text" id="city" placeholder="ciudad" maxlength="10">
+                <input type="text" id="message" placeholder="mensaje" maxlength="140">
+                <button id="button">Send</button>
+              </section>
+              <section id="contactPanel">
+
+                <section class="contact">
+                  <img src="../img/avatar1.jpg" alt="avatar" class="avatar">
+                  <div class="bubble">
+                    <h4>Madrid</h4>
+                    <h5>Álvaro</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias minus, tempora cum expedita cumque<p>
+                  </div>
+                </section>
+
+                <section class="contact">
+                  <img src="../img/avatar2.jpg" alt="avatar" class="avatar">
+                  <div class="bubble">
+                    <h4>Madrid</h4>
+                    <h5>Marta</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit necessitatibus.<p>
+                  </div>
+
+                  <section class="contact">
+                  <img src="../img/avatar3.jpg" alt="avatar" class="avatar">
+                  <div class="bubble">
+                    <h4>Madrid</h4>
+                    <h5>Manolo</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit necessitatibus.<p>
+                  </div>
+                </section>
+                </section>
+                </section>
+              </section>
+            </div>
+            <form id="form1" runat="server">
+                <div id="map_canvas"></div>
+            </form>
+        </article>
     </body>
 </html>
