@@ -1,4 +1,4 @@
-function initialize() {
+unction initialize() {
 
 	var options = {
 	  enableHighAccuracy: true,
@@ -11,21 +11,55 @@ function initialize() {
 		var lon = pos.coords.longitude;
 		var myLatlng = new google.maps.LatLng(lat, lon);
 		
-		/*var losers = {
+//Almacenamos lat y long para enviarlo
+		var losers = {
 			points: []
 		};
 
 		losers.points.push( {"lat": lat, "lon": lon});
 
 
-		//Aquí deberíamos meter la variable marker en "success" o crear una función___________________
-		$.ajax({
-		  type: "POST",
-		  url: '/',
-		  data: {"losers": losers},
-		  success: function(data){console.log(data)},
-		  dataType: 'json'
-		});*/
+		$.post("/map", losers, function(){
+				var response = $.getJSON("/map", userMarkers(data))
+		})
+
+		function userMarkers(data){
+
+	  	  	//$.getJSON("/map", function(data) { 
+	     	       $.each(data.points, function (i, value) {
+		
+	      	         var myLatlng = new google.maps.LatLng(value.lat, value.lon);
+	      	          
+	       	         var marker = new google.maps.Marker({
+	       	         position: myLatlng,
+	       	         map: map,
+	       	         title: "mochilerillo"});
+	      	         
+	      	         //Esto tiene que venir del input en un futuro
+	      	         var contentString = '<div>'+
+	      				'<h1>'+value.name+'</h1>'+
+	      				'<div>'+
+	      				'<p>'+value.message+'</p>'+
+	      				'<p>'+value.country+' <a href="http://twitter.com">'+
+	      				'Twitter</a>' +
+	      				'</p>'+
+	      				'</div>'+
+	      				'</div>';
+
+					var infowindow = new google.maps.InfoWindow({
+					content: contentString,
+	      			maxWidth: 300
+
+					});
+
+	  	  			google.maps.event.addListener(marker, 'click', function() {
+	   	  			infowindow.open(map, marker);
+					});
+		
+	    			});
+			//});
+  	  	}
+		
 
 		// Objeto literal creado para la realización de las distintas opciones del mapa.
 	    var mapOptions = {
@@ -36,18 +70,18 @@ function initialize() {
 	        mapTypeId: google.maps.MapTypeId.ROADMAP
 	    };
 
-
+//Coordenadas de usuario en el marker
 		var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
 		var marker = new google.maps.Marker({
       		 position: myLatlng,
      		 map: map,
  		});
-
+ 
 		var contentString = '<div>'+
-      		'<h1>Tú</h1>'+
+      		'<h1>You</h1>'+
       		'<div>'+
-      		'<p>Hi! Anyone for a beer?</p>'+
-      		'<p>Country: Canada <a href="http://twitter.com">'+
+      		'<p>Write a message</p>'+
+      		'<p>Country: Spain <a href="http://twitter.com">'+
       		'Twitter</a>' +
       		'</p>'+
       		'</div>'+
@@ -63,10 +97,16 @@ function initialize() {
    	  	infowindow.open(map, marker);
 			});
 
+
+//Coordenadas de los otros usuarios, recogidas de la geolocalización, enviadas a sinatra por un "post" y ahora recogidas con la function
+//userMarkers que se integra en la var respuesta del post.
+  	  	
+
   	  	$.ajaxSetup({cache: false});
 
+//Colocamos los valores JSON en los markers (establecimientos)
  		$.getJSON('points.json', function(data) { 
-     	       $.each( data.points, function(i, value) {
+     	       $.each( data.points, function (i, value) {
 	
       	         var myLatlng = new google.maps.LatLng(value.lat, value.lon);
       	          
@@ -75,7 +115,7 @@ function initialize() {
        	         map: map,
        	         title: "mochilerillo"});
       	         
-      	         //Esto tiene que venir del input
+      	         //Esto tiene que venir del input en un futuro
       	         var contentString = '<div>'+
       				'<h1>'+value.name+'</h1>'+
       				'<div>'+
@@ -108,6 +148,3 @@ function initialize() {
 
  	 
 }
-
-
-

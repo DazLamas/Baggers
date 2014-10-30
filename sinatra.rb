@@ -5,6 +5,7 @@ require 'rubygems'
 require 'json'
 
 
+
 set :bind, '0.0.0.0'
 
 
@@ -15,15 +16,17 @@ get '/' do
 
 end
 
-get '/#exactPoint' do
-
-	erb :index
-
-end
 
 get '/map' do
 
   erb :map
+
+end
+
+post '/map' do
+
+
+erb :map
 
 end
 
