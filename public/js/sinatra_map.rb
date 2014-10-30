@@ -29,19 +29,3 @@ post '/map' do
 erb :map
 
 end
-
-
-
-
-
-
-#arr = []
-
-#get "/" do
-
-#	json = File.read('losers.json')
-#	arr = JSON.parse(json)
-
-#end
-
-

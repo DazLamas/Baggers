@@ -1,0 +1,153 @@
+function initialize() {
+
+	var options = {
+	  enableHighAccuracy: true,
+	  timeout: 5000,
+	  maximumAge: 0
+	};
+
+	function success(pos) {
+		var lat = pos.coords.latitude;
+		var lon = pos.coords.longitude;
+		var myLatlng = new google.maps.LatLng(lat, lon);
+		
+//Almacenamos lat y long para enviarlo
+		var losers = {
+			points: []
+		};
+
+		losers.points.push( {"lat": lat, "lon": lon});
+
+
+		$.post("/map", losers, function(){
+				var response = $.getJSON("/map", userMarkers(data))
+		})
+
+		function userMarkers(data){
+
+	  	  	//$.getJSON("/map", function(data) { 
+	     	       $.each(data.points, function (i, value) {
+		
+	      	         var myLatlng = new google.maps.LatLng(value.lat, value.lon);
+	      	          
+	       	         var marker = new google.maps.Marker({
+	       	         position: myLatlng,
+	       	         map: map,
+	       	         title: "mochilerillo"});
+	      	         
+	      	         //Esto tiene que venir del input en un futuro
+	      	         var contentString = '<div>'+
+	      				'<h1>'+value.name+'</h1>'+
+	      				'<div>'+
+	      				'<p>'+value.message+'</p>'+
+	      				'<p>'+value.country+' <a href="http://twitter.com">'+
+	      				'Twitter</a>' +
+	      				'</p>'+
+	      				'</div>'+
+	      				'</div>';
+
+					var infowindow = new google.maps.InfoWindow({
+					content: contentString,
+	      			maxWidth: 300
+
+					});
+
+	  	  			google.maps.event.addListener(marker, 'click', function() {
+	   	  			infowindow.open(map, marker);
+					});
+		
+	    			});
+			//});
+  	  	}
+		
+
+		// Objeto literal creado para la realización de las distintas opciones del mapa.
+	    var mapOptions = {
+	        zoom: 16,
+	        center: new google.maps.LatLng(lat, lon),
+	        disableDefaultUI: false,
+	        navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
+	        mapTypeId: google.maps.MapTypeId.ROADMAP
+	    };
+
+//Coordenadas de usuario en el marker
+		var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+		var marker = new google.maps.Marker({
+      		 position: myLatlng,
+     		 map: map,
+ 		});
+ 
+		var contentString = '<div>'+
+      		'<h1>You</h1>'+
+      		'<div>'+
+      		'<p>Write a message</p>'+
+      		'<p>Country: Spain <a href="http://twitter.com">'+
+      		'Twitter</a>' +
+      		'</p>'+
+      		'</div>'+
+      		'</div>';
+
+		var infowindow = new google.maps.InfoWindow({
+				content: contentString,
+      			maxWidth: 500
+
+		});
+
+  	  	google.maps.event.addListener(marker, 'click', function() {
+   	  	infowindow.open(map, marker);
+			});
+
+
+//Coordenadas de los otros usuarios, recogidas de la geolocalización, enviadas a sinatra por un "post" y ahora recogidas con la function
+//userMarkers que se integra en la var respuesta del post.
+  	  	
+
+  	  	$.ajaxSetup({cache: false});
+
+//Colocamos los valores JSON en los markers (establecimientos)
+ 		$.getJSON('points.json', function(data) { 
+     	       $.each( data.points, function (i, value) {
+	
+      	         var myLatlng = new google.maps.LatLng(value.lat, value.lon);
+      	          
+       	         var marker = new google.maps.Marker({
+       	         position: myLatlng,
+       	         map: map,
+       	         title: "mochilerillo"});
+      	         
+      	         //Esto tiene que venir del input en un futuro
+      	         var contentString = '<div>'+
+      				'<h1>'+value.name+'</h1>'+
+      				'<div>'+
+      				'<p>'+value.message+'</p>'+
+      				'<p>'+value.country+' <a href="http://twitter.com">'+
+      				'Twitter</a>' +
+      				'</p>'+
+      				'</div>'+
+      				'</div>';
+
+				var infowindow = new google.maps.InfoWindow({
+				content: contentString,
+      			maxWidth: 300
+
+				});
+
+  	  			google.maps.event.addListener(marker, 'click', function() {
+   	  			infowindow.open(map, marker);
+					});
+	
+    			});
+		});
+
+	};
+	function error(err) {
+	  console.warn('ERROR(' + err.code + '): ' + err.message);
+	};
+
+	navigator.geolocation.getCurrentPosition(success, error, options);
+
+ 	 
+}
+
+
+
