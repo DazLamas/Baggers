@@ -1,4 +1,4 @@
-unction initialize() {
+function initialize() {
 
 	var options = {
 	  enableHighAccuracy: true,
@@ -18,15 +18,16 @@ unction initialize() {
 
 		losers.points.push( {"lat": lat, "lon": lon});
 
-
-		$.post("/map", losers, function(){
-				var response = $.getJSON("/map", userMarkers(data))
+		$.ajaxSetup({cache: false});
+		$.post("/map", losers, function(data){
+				userMarkers(data)
 		})
-
+//Coordenadas de los otros usuarios, recogidas de la geolocalización, enviadas a sinatra por un "post" y ahora recogidas con la function
+//userMarkers que se integra en la var respuesta del post.
 		function userMarkers(data){
 
 	  	  	//$.getJSON("/map", function(data) { 
-	     	       $.each(data.points, function (i, value) {
+	     	       $.each(data, function (i, value) {
 		
 	      	         var myLatlng = new google.maps.LatLng(value.lat, value.lon);
 	      	          
@@ -70,7 +71,7 @@ unction initialize() {
 	        mapTypeId: google.maps.MapTypeId.ROADMAP
 	    };
 
-//Coordenadas de usuario en el marker
+//Coordenadas de usuario en el marker.BORRAR. YA LO TENEMOS
 		var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
 		var marker = new google.maps.Marker({
       		 position: myLatlng,
@@ -96,13 +97,7 @@ unction initialize() {
   	  	google.maps.event.addListener(marker, 'click', function() {
    	  	infowindow.open(map, marker);
 			});
-
-
-//Coordenadas de los otros usuarios, recogidas de la geolocalización, enviadas a sinatra por un "post" y ahora recogidas con la function
-//userMarkers que se integra en la var respuesta del post.
   	  	
-
-  	  	$.ajaxSetup({cache: false});
 
 //Colocamos los valores JSON en los markers (establecimientos)
  		$.getJSON('points.json', function(data) { 

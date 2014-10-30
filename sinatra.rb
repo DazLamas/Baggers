@@ -3,12 +3,13 @@ require 'sinatra/reloader'
 require 'sinatra/json'
 require 'rubygems'
 require 'json'
+require 'pry'
 
 
 
 set :bind, '0.0.0.0'
 
-
+coord = []
 
 get '/' do
 
@@ -25,8 +26,9 @@ end
 
 post '/map' do
 
+	coord << params['points']['0']
 
-erb :map
+	json coord
 
 end
 
