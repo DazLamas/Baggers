@@ -1,0 +1,89 @@
+
+    
+    <header>
+      <a href="about.html" class="floatR boton">Sign In</a>
+      <h1>
+        BAGGERS
+      </h1>
+      <p>"You will never walk alone"</p>
+      <button>
+        <a href="index.erb#exactPoint">
+          <%= image_tag("arrow2.png") %>
+        </a>
+      </button>
+    </header>
+    <nav id="exactPoint">
+      <ul class="floatL Vertical-Align menu">
+        <li><a href="index.erb">HOME</a></li>
+        <li><a href="http://localhost:3000/map">MAP</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+      </ul>
+      <section class="floatR-nonMargin Vertical-Align cf">
+        <a href="outTwitter">
+          <%= image_tag("twitter.png") %>
+        </a>
+        <a href="outFacebook">
+          <%= image_tag("facebook.png") %>
+        </a>) 
+      </section>
+    </nav>  
+    <article>
+
+      <!-- input data -->
+      <form action="/messages" method="POST">
+        <section class="inputContainer">
+          <input type="text" name="user_name" id="user_name" placeholder="Name" maxlength="10">
+          <input type="text" name="message" id="message" placeholder="mensaje" maxlength="140">
+          <button action="/messages" id="button">Send</button>
+        </section>
+      </form>
+
+      <section id="contactPanel">
+
+        <section class="contact">
+          <%= image_tag("avatar1.jpg", class: "avatar") %>
+          <div class="bubble">
+            <h4>Madrid</h4>
+            <h5>Álvaro</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias minus, tempora cum expedita cumque<p>
+          </div>
+        </section>
+
+        <section class="contact">
+          <%= image_tag("avatar2.jpg", class: "avatar") %>
+          <div class="bubble">
+            <h4>Madrid</h4>
+            <h5>Marta</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit necessitatibus.<p>
+          </div>
+
+          <section class="contact">
+          <%= image_tag("avatar3.jpg", class: "avatar") %>
+          <div class="bubble">
+            <h4>Madrid</h4>
+            <h5>Manolo</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit necessitatibus.<p>
+
+          </div>
+          <section>
+            <% @message.each do |mes| %>
+            
+          <div class="bubble">
+            <h5><%= mes.user_name %></h5>
+            <p><%= mes.message %><p>
+            <% end %>
+          </div>
+           
+        
+             
+           
+
+          </section>
+        </section>
+        </section>
+        </section>
+      </section>
+    </article>
+    <footer>
+      
+    </footer>
