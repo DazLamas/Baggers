@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
 	def index
 
-		@message = Message.all
+		@messages = Message.all
 
 	end
 
@@ -9,7 +9,10 @@ class MessagesController < ApplicationController
 
 		# binding.pry
 
-		@message = Message.create(message: params[:message], user_name: params[:user_name])
+		@message = Message.create(
+			message: params[:message], 
+			user_name: params[:user_name]
+		)
 
 
 		if	@message.save	
@@ -20,6 +23,14 @@ class MessagesController < ApplicationController
 			# flash.now[:error] = "Fata Error. Vuelve a introducir los datos"
 			render	'index'	
 		end	
+		
+	end
+
+	def destroy
+
+		Message.find(params[:id]).delete
+
+		redirect_to	action: 'index', controller: 'messages'
 		
 	end
 

@@ -66,16 +66,17 @@
 
           </div>
           <section>
-            <% @message.each do |mes| %>
+            <% @messages.each do |mes| %>
             
           <div class="bubble">
             <h5><%= mes.user_name %></h5>
             <p><%= mes.message %><p>
-            <% end %>
+            <%= button_to "delete", {
+                :controller => :messages, :action => 'destroy', :id => mes.id 
+            }, 
+            :method => :delete %>
+            <%end%>
           </div>
-           
-        
-             
            
 
           </section>

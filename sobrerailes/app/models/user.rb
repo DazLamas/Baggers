@@ -1,7 +1,7 @@
-class User < ActiveRecord::Base
 
+class User < ActiveRecord::Base
 	has_many :messages
 
-	validates :user_name, presence: true
-
+	validates :lat, presence: true
+	validates :long, presence: true
 end

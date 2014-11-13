@@ -1,11 +1,12 @@
 body { 
-    background: url('/assets/city.jpg');
+    /*background: url('/assets/city.jpg');*/
+    background-image: url('city.jpg');
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
 
 #map_canvas {
-    width: 800px; 
-    height: 700px;
-    margin: 40 auto;
+    width: 750px; 
+    height: 570px;
+    margin: 20px auto;
 }

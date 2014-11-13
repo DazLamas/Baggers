@@ -1,10 +1,24 @@
 Rails.application.routes.draw do
 
+  #Cargamos la página principal
   root 'messages#index'
 
+  #Creamos e imprimimos los mensajes del input
   post '/messages' => 'messages#create'
 
-  get 'map' => 'users#index'
+  #borrar mensajes en index
+  delete '/' => 'messages#destroy'
+  
+  #Cargamos la página 
+  get '/map' => 'users#index'
+
+  #Creamos e imprimimos los usuarios con sus coords
+  post '/map' => 'users#create'
+
+  #Añadir localizaciones de los bares al mapa
+  post '/locations' => 'locations#index'
+
+  get '/locations', to: 'locations#index', as: :map_path
 
 
   # The priority is based upon order of creation: first created -> highest priority.

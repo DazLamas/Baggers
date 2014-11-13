@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141111143239) do
+ActiveRecord::Schema.define(version: 20141112202717) do
 
   create_table "locations", force: true do |t|
     t.decimal  "latitude"
     t.decimal  "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   create_table "messages", force: true do |t|
@@ -34,6 +35,8 @@ ActiveRecord::Schema.define(version: 20141111143239) do
     t.decimal  "long"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "message"
+    t.integer  "message_id"
   end
 
 end

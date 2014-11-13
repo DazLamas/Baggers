@@ -9,17 +9,25 @@
 
 user1 = User.create(
 	user_name: 'Golfred', 
-	lat: 40.11,
-	long: -3
+	message_id: 1,
+	message: 'Lorem ipsum dolor sit amet, 
+	consectetur adipisicing elit. Alias minus, 
+	tempora cum expedita cumque',
+	lat: 40.41,
+	long: -3.70
 	)
 
 user2 = User.create(
 	user_name: 'Hälh', 
-	lat: 40.1,
-	long: -3.01
+	message_id: 2,
+	message: 'Lorem ipsum dolor sit amet, 
+	consectetur adipisicing elit. Alias minus, 
+	tempora cum expedita cumque',
+	lat: 40.4211,
+	long: -3.7011
 	)
 
-	Message.create(
+    Message.create(
 	user_id: user1.id,
 	user_name: user1.user_name,
 	message: 'Lorem ipsum dolor sit amet, 
@@ -27,7 +35,7 @@ user2 = User.create(
 	tempora cum expedita cumque'
 	)
 
-	Message.create(
+    Message.create(
 	user_id: user2.id,
 	user_name: user2.user_name,
 	message: 'Lorem ipsum dolor sit amet, 
@@ -36,12 +44,20 @@ user2 = User.create(
 	)
 
 	Location.create(
-	latitude: 40.1133,
+	name: "Bar Paco",
+	latitude: 40.22133,
 	longitude: -3.1113
 	)
 
 	Location.create(
-	latitude: 40.123,
+	name: "Manolo´s pub",
+	latitude: 40.323,
 	longitude: -3.1
 	)	
 
+	Location.create(
+	name: "Bar La Cebada",
+	latitude: 40.5133,
+	longitude: -3.1713
+	)
+	
