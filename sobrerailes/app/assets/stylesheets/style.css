@@ -71,14 +71,17 @@ button {
 	text-decoration:none;
 	color: #696969;
 	letter-spacing: 3px;
-}*/
+}
 nav {
-	height: 60px;
+	height: 100px;
 	width: 100%;
-	background-color: rgb(25,20,20)
+	background-color: rgb(25,20,20);
 }
 nav a:hover {
 	color: #708090;
+}
+nav ul {
+	margin-left: 130px;
 }
 .menu li {
 	display: inline-block;
@@ -93,7 +96,7 @@ nav img {
 .section1 {
 	width: 1200px;
 	height: 600px;
-	margin: auto 150px;
+	margin: auto 160px;
 }
 .section1 .text_aside {
 	font-family: 'Muli', sans-serif;
@@ -120,6 +123,9 @@ nav img {
 	height: 700px;
 	text-align: center;
 }*/
+.section2 {
+	margin-top: 400px;
+}
 .inputContainer {
 	margin: 50px auto;
 	height: 40px;
