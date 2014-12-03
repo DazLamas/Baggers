@@ -1,17 +1,22 @@
+<script type="text/javascript" src = "http://maps.google.com/maps/api/js?sensor=false"></script>
+<link href='http://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
 
-    
-    <header>
-      <a href="about.html" class="floatR boton">Sign In</a>
+<!-- - - - - - - - HEADER -->
+
+    <header class="landing">
+      <a href="about.html" class="floatR button_SignIn">Sign In</a>
       <h1>
         BAGGERS
       </h1>
-      <p>"You will never walk alone"</p>
+      <p>"Contact with other backpackers, make plans and share your <br> experience during your trip around the world"</p>
       <button>
         <a href="index.erb#exactPoint">
           <%= image_tag("arrow2.png") %>
         </a>
       </button>
     </header>
+
+<!-- - - - - - - - NAV -->
     <nav id="exactPoint">
       <ul class="floatL Vertical-Align menu">
         <li><a href="index.erb">HOME</a></li>
@@ -24,27 +29,39 @@
         </a>
         <a href="outFacebook">
           <%= image_tag("facebook.png") %>
-        </a>) 
+        </a>)
       </section>
-    </nav>  
-    <article>
+    </nav>
 
+<!-- - - - - - - - SECTION 1 -->
+    <article class="section1">
+      <section class="floatL cf Vertical-Align">
+        <p class="text_aside">BACK-PACKERS YOU CAN
+        MEET THROUGH BAGGERS</p>
+        <button class="button_color">Sign Up</button>
+        <button class="button_white">Read More</button>
+      </section>
+      <div id="map_canvas" class="floatR"></div>
+    </article>
+
+<!-- - - - - - - - SECTION 2 -->
+    <article>
       <!-- input data -->
       <form action="/messages" method="POST">
         <section class="inputContainer">
-          <input type="text" name="user_name" id="user_name" placeholder="Name" maxlength="10">
-          <input type="text" name="message" id="message" placeholder="mensaje" maxlength="140">
+          <input type="text" name="user_name" id="user_name" placeholder="Name" maxlength="30" class="input">
+          <input type="text" name="message" id="message" placeholder="mensaje" maxlength="240" class="input">
           <button action="/messages" id="button">Send</button>
         </section>
       </form>
 
-      <section id="contactPanel">
+      <section class="contactPanel">
 
         <section class="contact">
           <%= image_tag("avatar1.jpg", class: "avatar") %>
           <div class="bubble">
-            <h4>Madrid</h4>
-            <h5>Álvaro</h5>
+            <h4>Sophie</h4>
+            <h5>France</h5>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias minus, tempora cum expedita cumque<p>
           </div>
         </section>
@@ -52,39 +69,39 @@
         <section class="contact">
           <%= image_tag("avatar2.jpg", class: "avatar") %>
           <div class="bubble">
-            <h4>Madrid</h4>
-            <h5>Marta</h5>
+            <h4>Vasilis</h4>
+            <h5>Greece</h5>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit necessitatibus.<p>
           </div>
+        </section>
 
-          <section class="contact">
+        <section class="contact">
           <%= image_tag("avatar3.jpg", class: "avatar") %>
           <div class="bubble">
-            <h4>Madrid</h4>
-            <h5>Manolo</h5>
+            <h4>Olga</h4>
+            <h5>Perm</h5>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit necessitatibus.<p>
-
           </div>
-          <section>
-            <% @messages.each do |mes| %>
-            
-          <div class="bubble">
-            <h5><%= mes.user_name %></h5>
-            <p><%= mes.message %><p>
-            <%= button_to "delete", {
-                :controller => :messages, :action => 'destroy', :id => mes.id 
-            }, 
-            :method => :delete %>
-            <%end%>
-          </div>
-           
+        </section>
 
-          </section>
-        </section>
-        </section>
-        </section>
+          <% @messages.each do |message| %>
+            <section class="contact">
+            <img src="avatar_guest.png">
+              <div class="bubble">
+                <h5><%= message.user.user_name %></h5>
+                <p><%= message.text %><p>
+                <%= button_to "delete", {
+                    :controller => :messages, :action => 'destroy', :id => message.id
+                },
+                :method => :delete %>
+              </div>
+            </section>
+          <%end%>
+
+
+
       </section>
     </article>
     <footer>
-      
+
     </footer>

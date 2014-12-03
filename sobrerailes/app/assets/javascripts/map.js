@@ -1,157 +1,78 @@
 function initialize() {
+  $.ajaxSetup({cache: false});
 
-	var options = {
-	  enableHighAccuracy: true,
-	  timeout: 5000,
-	  maximumAge: 0
-	};
+	function onGpsSuccess(position) {
+		var coords = position.coords;
+    var latLng = new google.maps.LatLng(coords.latitude, coords.longitude);
 
-	function success(pos) {
-		var lat = pos.coords.latitude;
-		var lon = pos.coords.longitude;
-		var myLatlng = new google.maps.LatLng(lat, lon);
-		
-//Almacenamos lat y long para enviarlo
-		// var losers = {
-		// 	signals: []
-		// };
+    var map = new google.maps.Map(document.getElementById("map_canvas"), {
+        zoom                    : 14,
+        center                  : latLng,
+        mapTypeId               : google.maps.MapTypeId.ROADMAP
+    });
 
-		var geoloc ={
+		$.post("/map",  {"lat": coords.latitude, "long": coords.longitude}, function (data) {
+   		$.each(data, function (i, value) {
+	    	var marker = new google.maps.Marker({
+         	position: new google.maps.LatLng(value.lat, value.long),
+        	map 		: map,
+          icon    : 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
+         	title		: "Backpacker"
+	      });
 
-				"lat": lat,
-				"long": lon
+	    	var html = "\
+	    		<div>\
+	    			<h1>" + value.user_name + "</h1>\
+	    			<a href='http://twitter.com'>Twitter</a>\
+	    		</div>";
 
-			}
-
-
-		// geoloc.signals.push( {"lat": lat, "lon": lon});
-
-		$.ajaxSetup({cache: false});
-		$.post("/map", geoloc, function(data){
-				userMarkers(data)
-		})
-
-//Coordenadas de los otros usuarios, recogidas de la geolocalización, enviadas a sinatra por un "post" 
-//y ahora recogidas con la function
-//userMarkers que se integra en la var respuesta del post.
-		function userMarkers(data){
-
-	  	  	//$.getJSON("/map", function(data) { 
-	
-	     	       $.each(data, function (i, value) {
-		
-	      	         var myLatlng = new google.maps.LatLng(value.lat, value.long);
-	      	          
-	       	         var marker = new google.maps.Marker({
-	       	         position: myLatlng,
-	       	         map: map,
-	       	         title: "mochilerillo"});
-	      	         
-	      	         //Esto tiene que venir del input en un futuro
-	      	         var contentString = '<div>'+
-
-	      				'<h1>'+value.user_name+'</h1>'+
-	      				'<div>'+
-	      				'<p>'+value.message+'</p>'+
-	      				'<p>'+value.country+' <a href="http://twitter.com">'+
-	      				'Twitter</a>' +
-	      				'</p>'+
-	      				'</div>'+
-	      				'</div>';
-
-					var infowindow = new google.maps.InfoWindow({
-					content: contentString,
-	      			maxWidth: 300
-
-					});
-
-	  	  			google.maps.event.addListener(marker, 'click', function() {
-	   	  			infowindow.open(map, marker);
-					});
-		
-	    			});
-			//});
-  	  	}
-		
-
-		// Objeto literal creado para la realización de las distintas opciones del mapa.
-	    var mapOptions = {
-	        zoom: 5,
-	        center: new google.maps.LatLng(lat, lon),
-	        disableDefaultUI: false,
-	        navigationControlOptions: {style: google.maps.NavigationControlStyle.SMALL},
-	        mapTypeId: google.maps.MapTypeId.ROADMAP
-	    };
-
-//Coordenadas de usuario en el marker.BORRAR. YA LO TENEMOS
-		var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-		// var marker = new google.maps.Marker({
-  //     		 position: myLatlng,
-  //    		 map: map,
- 	// 	});
- 
-		// var contentString = '<div>'+
-  //     		'<h1>You</h1>'+
-  //     		'<div>'+
-  //     		'<p>Write a message</p>'+
-  //     		'<p>Country: Spain <a href="http://twitter.com">'+
-  //     		'Twitter</a>' +
-  //     		'</p>'+
-  //     		'</div>'+
-  //     		'</div>';
-
-		// var infowindow = new google.maps.InfoWindow({
-		// 		content: contentString,
-  //     			maxWidth: 500
-
-		// });
-
-  // 	  	google.maps.event.addListener(marker, 'click', function() {
-  //  	  	infowindow.open(map, marker);
-		// 	});
-  	  	
-
-// Colocamos los valores JSON en los markers (establecimientos)
- 		$.getJSON('/locations', function(data) { 
-     	       $.each(data, function (i, value) {
-	
-      	         var myLatlng = new google.maps.LatLng(value.latitude, value.longitude);
-      	          
-       	         var marker = new google.maps.Marker({
-       	         position: myLatlng,
-       	         map: map,
-       	         title: "mochilerillo"});
-      	         
-      	         //Esto tiene que venir del input en un futuro
-      	         var contentString = '<div>'+
-      				'<h1>'+value.name+'</h1>'+
-      				'<div>'+
-      				'<p>'+value.message+'</p>'+
-      				'<p>'+value.country+' <a href="http://twitter.com">'+
-      				'Twitter</a>' +
-      				'</p>'+
-      				'</div>'+
-      				'</div>';
-
-				var infowindow = new google.maps.InfoWindow({
-				content: contentString,
-      			maxWidth: 300
-
+				var infowindow = new google.maps.InfoWindow({content: html, maxWidth: 800});
+		  	google.maps.event.addListener(marker, 'click', function() {
+		  		infowindow.open(map, marker);
 				});
+			});
+	 	});
 
-  	  			google.maps.event.addListener(marker, 'click', function() {
-   	  			infowindow.open(map, marker);
-					});
-	
-    			});
+	 	// @JAVI_BORRACHO_TODAVIA_ES_CAPAZ_DE_DIFERENCIAR: FUNCIONES: camelCase VARIABLES: camel_case
+		var marker = new google.maps.Marker({ position: latLng, map: map});
+
+		var infowindow = new google.maps.InfoWindow({
+				content :  '<h1>You</h1>',
+      	maxWidth: 500
 		});
 
-	};
-	function error(err) {
-	  console.warn('ERROR(' + err.code + '): ' + err.message);
+  	google.maps.event.addListener(marker, 'click', function() {
+   	  infowindow.open(map, marker);
+		});
+
+ 		$.getJSON('/locations', function(data) {
+      $.each(data, function (i, value) {
+       	var marker = new google.maps.Marker({
+          position:  new google.maps.LatLng(value.latitude, value.longitude),
+          map     : map,
+          icon    : 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+          title   : "Bar/Restaurant"
+        });
+
+				var infowindow = new google.maps.InfoWindow({
+				  content : '<div>' + value.name + '</div>',
+      		maxWidth: 800
+				});
+
+  	    google.maps.event.addListener(marker, 'click', function() {
+   	      infowindow.open(map, marker);
+			  });
+    	});
+		});
 	};
 
-	navigator.geolocation.getCurrentPosition(success, error, options);
+	function onGpsError(error) {
+	  console.warn('ERROR(' + error.code + '): ' + error.message);
+	};
 
- 	 
+  // -- GET CURRENT POSITION VIA GPS ------------------------------------------
+	navigator.geolocation.getCurrentPosition(onGpsSuccess, onGpsError, {
+    enableHighAccuracy: true,
+    maximumAge        : 60000 /* 60 seconds cached */
+  });
 }

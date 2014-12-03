@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141112202717) do
+ActiveRecord::Schema.define(version: 20141113105052) do
 
   create_table "locations", force: true do |t|
     t.decimal  "latitude"
@@ -23,10 +23,9 @@ ActiveRecord::Schema.define(version: 20141112202717) do
 
   create_table "messages", force: true do |t|
     t.integer  "user_id"
-    t.string   "message"
+    t.string   "text"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "user_name"
   end
 
   create_table "users", force: true do |t|
@@ -35,8 +34,6 @@ ActiveRecord::Schema.define(version: 20141112202717) do
     t.decimal  "long"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "message"
-    t.integer  "message_id"
   end
 
 end

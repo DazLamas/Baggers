@@ -1,15 +1,12 @@
 .bubble {
-    position: relative;
     text-align: left;
     font-size: 16px;
-    width: 200px;
-    height: 100px;
-    padding: 5px;
-    background: #ffffff;
-    border: #000000 solid 1px;
+    width: 550px;
+    padding: 20px;
+    background-color: #F5F5F5;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
-    border-radius: 20px;
+    border-radius: 40px;
     display: inline-block;
 }
 
