@@ -34,7 +34,7 @@
     </nav>
 
 <!-- - - - - - - - SECTION 1 -->
-    <article class="section1">
+    <article class="article_style">
       <section class="floatL cf Vertical-Align">
         <p class="text_aside">BACK-PACKERS YOU CAN
         MEET THROUGH BAGGERS</p>
@@ -45,7 +45,7 @@
     </article>
 
 <!-- - - - - - - - SECTION 2 -->
-    <article class="section1">
+    <article class="article_style">
       <!-- input data -->
       <form action="/messages" method="POST">
         <section class="inputContainer">
@@ -86,8 +86,8 @@
 
           <% @messages.each do |message| %>
             <section class="contact">
-            <img src="avatar_guest.png">
-              <div class="textContact floatR-nonMargin">
+            <img src="avatar_guest.png" class="avatar floatL Vertical-Align cf">
+              <div class="textContact floatR-nonMargin Vertical-Align cf">
                 <h5><%= message.user.user_name %></h5>
                 <p><%= message.text %><p>
                 <%= button_to "delete", {
