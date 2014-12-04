@@ -136,27 +136,33 @@ nav img {
 	height: 30px;
 	border-radius: 6px;
 }
+
+/*MESSAGES*/
+
 .contactPanel{
-	margin: 55px auto;
-	width: 780px;
-	text-align: center;
-}
-.messageBox {
-	font-size: 16px;
-    width: 550px;
-    padding: 5px;
-    background: #ffffff;
-    border: #000000 solid 1px;
-    display: inline-block;
+	width: 600px;
+	height: 600px;
+	background-color: white;
+	overflow: scroll;
 }
 .contact {
-	width: 700px;
+	width: 600px;
+	height: 150px;
+	background-color: blue;
 	display: block;
-	margin-bottom: 20px;
-	text-align: center;
+	text-align: left;
+}
+.textContact{
+	width: 400px;
+	margin-right: 10px;
+}
+.contact img {
+	border-radius: 100px;
+	height: 100px;
+	margin-left: 20px;
 }
 .contact h4 {
-	text-align: center;
+	text-align: left;
 	font-family: Goudy Old Style, serif;
 	font-size: 25px;
 	color: #708090;
@@ -166,21 +172,17 @@ nav img {
 .contact h5 {
 	padding-bottom: 20px;
 	font-family: helvetica;
-	text-align: center;
+	text-align: left;
 	font-size: 16px;
 	font-style: bold;
 	color: #800000;
 }
 .contact p {
-	text-align: center;
+	text-align: left;
 	font-family: Goudy Old Style, serif;
 	line-height: 15px;
 	font-size: 15px;
 	color: #708090;
-}
-.contact img {
-	border-radius: 100px;
-	height: 150px;
 }
 
 

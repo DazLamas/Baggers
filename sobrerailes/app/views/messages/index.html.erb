@@ -45,7 +45,7 @@
     </article>
 
 <!-- - - - - - - - SECTION 2 -->
-    <article class="section2">
+    <article class="section1">
       <!-- input data -->
       <form action="/messages" method="POST">
         <section class="inputContainer">
@@ -58,8 +58,8 @@
       <section class="contactPanel">
 
         <section class="contact">
-          <%= image_tag("avatar1.jpg", class: "avatar") %>
-          <div class="bubble">
+          <%= image_tag("avatar1.jpg", class: "avatar floatL Vertical-Align cf") %>
+          <div class="textContact floatR-nonMargin Vertical-Align cf">
             <h4>Sophie</h4>
             <h5>France</h5>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias minus, tempora cum expedita cumque<p>
@@ -67,8 +67,8 @@
         </section>
 
         <section class="contact">
-          <%= image_tag("avatar2.jpg", class: "avatar") %>
-          <div class="bubble">
+          <%= image_tag("avatar2.jpg", class: "avatar floatL Vertical-Align cf") %>
+          <div class="textContact floatR-nonMargin Vertical-Align cf">
             <h4>Vasilis</h4>
             <h5>Greece</h5>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit necessitatibus.<p>
@@ -76,8 +76,8 @@
         </section>
 
         <section class="contact">
-          <%= image_tag("avatar3.jpg", class: "avatar") %>
-          <div class="bubble">
+          <%= image_tag("avatar3.jpg", class: "avatar floatL Vertical-Align cf") %>
+          <div class="textContact floatR-nonMargin Vertical-Align cf">
             <h4>Olga</h4>
             <h5>Perm</h5>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit necessitatibus.<p>
@@ -87,7 +87,7 @@
           <% @messages.each do |message| %>
             <section class="contact">
             <img src="avatar_guest.png">
-              <div class="bubble">
+              <div class="textContact floatR-nonMargin">
                 <h5><%= message.user.user_name %></h5>
                 <p><%= message.text %><p>
                 <%= button_to "delete", {
