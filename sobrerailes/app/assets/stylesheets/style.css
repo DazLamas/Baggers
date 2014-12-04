@@ -190,7 +190,8 @@ nav img {
 	height: 150px;
 	display: block;
 	text-align: left;
-	font: calibri, sans-serif;
+	font-family: 'Muli', sans-serif;
+	color: #C25151;
 }
 .textContact{
 	width: 400px;
@@ -204,7 +205,6 @@ nav img {
 .contact h4 {
 	text-align: left;
 	font-size: 25px;
-	color: #708090;
 	font-style: none;
 	margin-bottom: 10px;
 }
@@ -214,15 +214,19 @@ nav img {
 	text-align: left;
 	font-size: 16px;
 	font-style: bold;
-	color: #800000;
 }
 .contact p {
 	text-align: left;
 	line-height: 15px;
 	font-size: 15px;
-	color: #708090;
 }
-
+.text_aside2{
+	font-family: 'Muli', sans-serif;
+	font-size: 50px;
+	color: white;
+	width: 600px;
+	text-align: right;
+}
 
 
 
