@@ -144,11 +144,17 @@ nav img {
 	height: 600px;
 	background-color: white;
 	overflow: scroll;
+	border-radius: 10px;
+}
+.contactPanel section:nth-child(even) {
+	background-color: papayawhip;
+}
+.contactPanel section:nth-child(odd) {
+	background-color: peachpuff;
 }
 .contact {
 	width: 600px;
 	height: 150px;
-	background-color: blue;
 	display: block;
 	text-align: left;
 }
