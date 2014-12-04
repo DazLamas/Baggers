@@ -1,17 +1,17 @@
-#IN PROCCES:
+#What is Baggers:
+##Bagger is a web app to connect backpackers who are in Madrid. We provide a geolocation map service to check where are all the users and a message timeline to set hang outs.
 
-##1.Message Panel:
+#What technologies have we used:
+##Bagger is a class project for Iron Hack web development boot camp. We've used:
 
-##a. Refact sendButton function
+- Javascript
+- AJAX
+- JSON
+- HTML & CSS
+- Ruby on Rails
+- Sinatra
 
-##2.Users Geolocation Map
-
-##a. AJAX call function for JSON
-##b. Fix map file
-
-#TO DO'S 
-###- Change new messages order (from bottom to top)
-###- Add onKeyPress function for last input
-###- Add file input for default avatar images
-
-#---- Next meeting: Monday morning
+#In progress:
+- CSS style
+- User registration
+- Personal profile
