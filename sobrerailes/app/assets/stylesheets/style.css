@@ -1,6 +1,5 @@
 body {
 	font-family: helvetica, arial, sans-serif;
-	background-color: #C25151;
 }
 a {
 	text-decoration: none;
@@ -71,7 +70,7 @@ button {
 nav {
 	height: 100px;
 	width: 100%;
-	background-color: rgb(25,20,20);
+	background-color: white;
 }
 nav a:hover {
 	color: #708090;
@@ -80,8 +79,8 @@ nav ul {
 	margin-left: 130px;
 }
 .menu li {
+	color: #C25151;
 	display: inline-block;
-	color: #696969;
 	letter-spacing: 3px;
 	padding: 20px;
 }
@@ -92,24 +91,31 @@ nav img {
 
 /* ---------------- ARTICLE ------------------ */
 
-.article_style {
+.section_style {
 	width: 1200px;
 	height: 800px;
 	margin: 0 auto;
 }
 
+article:nth-child(even){
+	background-color: #C25151;
+}
+article:nth-child(odd){
+	background-color: dodgerblue;
+	height: 900px;
+}
+
 /* ---------------- MAP SECTION -------------- */
 
-.article_style .text_aside {
+.section_style .text_aside {
 	font-family: 'Muli', sans-serif;
 	font-size: 50px;
 	color: white;
 	width: 600px;
 	text-align: left;
-/*	margin-bottom: 20px;*/
 }
 
-.article_style .button_white {
+.section_style .button_white {
 	background-color: rgba(0,0,0, 0);
 	border: solid 2px white;
 	color: white;

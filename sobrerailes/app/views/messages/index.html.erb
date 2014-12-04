@@ -34,78 +34,81 @@
     </nav>
 
 <!-- - - - - - - - SECTION 1 -->
-
-    <article class="article_style">
-      <section class="floatL cf Vertical-Align">
-        <p class="text_aside">BACK-PACKERS YOU CAN
-        MEET THROUGH BAGGERS</p>
-        <button class="button_color">Sign Up</button>
-        <button class="button_white">Read More</button>
+    <article>
+      <section class="section_style">
+        <section class="floatL cf Vertical-Align">
+          <p class="text_aside">BACK-PACKERS YOU CAN
+          MEET THROUGH BAGGERS</p>
+          <button class="button_color">Sign Up</button>
+          <button class="button_white">Read More</button>
+        </section>
+        <div id="map_canvas" class="map_style floatR"></div>
       </section>
-      <div id="map_canvas" class="map_style floatR"></div>
     </article>
-
 <!-- - - - - - - - SECTION 2 -->
-    <article class="article_style">
+    <article>
+      <section class="section_style">
 
-      <!-- input data -->
-      <section class="contactPanel floatL cf Vertical-Align">
+        <!-- input data -->
+        <section class="contactPanel floatL cf Vertical-Align">
 
-        <section class="inputContainer">
-          <form action="/messages" method="POST">
-            <input type="text" name="user_name" id="user_name" placeholder="Name" maxlength="30" class="input">
-            <button action="/messages" id="button">Send!!</button>
-            <input type="text" name="message" id="message" placeholder="Place your message" maxlength="240" class="input">
-          </form>
+          <section class="inputContainer">
+            <form action="/messages" method="POST">
+              <input type="text" name="user_name" id="user_name" placeholder="Name" maxlength="30" class="input">
+              <button action="/messages" id="button">Send!!</button>
+              <input type="text" name="message" id="message" placeholder="Place your message" maxlength="240" class="input">
+            </form>
+          </section>
+
+          <!-- messages -->
+          <section class="contact">
+            <%= image_tag("avatar1.jpg", class: "avatar floatL Vertical-Align cf") %>
+            <div class="textContact floatR Vertical-Align cf">
+              <h4>Sophie</h4>
+              <!-- <h5>France</h5> -->
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias minus, tempora cum expedita cumque<p>
+            </div>
+          </section>
+
+          <section class="contact">
+            <%= image_tag("avatar2.jpg", class: "avatar floatL Vertical-Align cf") %>
+            <div class="textContact floatR Vertical-Align cf">
+              <h4>Vasilis</h4>
+              <!-- <h5>Greece</h5> -->
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit necessitatibus.<p>
+            </div>
+          </section>
+
+          <section class="contact">
+            <%= image_tag("avatar3.jpg", class: "avatar floatL Vertical-Align cf") %>
+            <div class="textContact floatR Vertical-Align cf">
+              <h4>Olga</h4>
+              <!-- <h5>Perm</h5> -->
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit necessitatibus.<p>
+            </div>
+          </section>
+
+            <% @messages.each do |message| %>
+              <section class="contact">
+              <img src="avatar_guest.png" class="avatar floatL Vertical-Align cf">
+                <div class="textContact floatR Vertical-Align cf">
+                  <h4><%= message.user.user_name %></h4>
+                  <p><%= message.text %><p>
+                  <%= button_to "delete", {
+                      :controller => :messages, :action => 'destroy', :id => message.id
+                  },
+                  :method => :delete %>
+                </div>
+              </section>
+            <%end%>
         </section>
 
-        <!-- messages -->
-        <section class="contact">
-          <%= image_tag("avatar1.jpg", class: "avatar floatL Vertical-Align cf") %>
-          <div class="textContact floatR Vertical-Align cf">
-            <h4>Sophie</h4>
-            <!-- <h5>France</h5> -->
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias minus, tempora cum expedita cumque<p>
-          </div>
+        <section class="floatR cf Vertical-Align">
+          <p class="text_aside2">TELL WHAT YOU WANNA DO TO <br> OTHERS <br> BACK-PACKERS</p>
+          <button class="button_white floatR">Read More</button>
+          <button class="button_color floatR">Sign Up</button>
         </section>
 
-        <section class="contact">
-          <%= image_tag("avatar2.jpg", class: "avatar floatL Vertical-Align cf") %>
-          <div class="textContact floatR Vertical-Align cf">
-            <h4>Vasilis</h4>
-            <!-- <h5>Greece</h5> -->
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit necessitatibus.<p>
-          </div>
-        </section>
-
-        <section class="contact">
-          <%= image_tag("avatar3.jpg", class: "avatar floatL Vertical-Align cf") %>
-          <div class="textContact floatR Vertical-Align cf">
-            <h4>Olga</h4>
-            <!-- <h5>Perm</h5> -->
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit necessitatibus.<p>
-          </div>
-        </section>
-
-          <% @messages.each do |message| %>
-            <section class="contact">
-            <img src="avatar_guest.png" class="avatar floatL Vertical-Align cf">
-              <div class="textContact floatR Vertical-Align cf">
-                <h4><%= message.user.user_name %></h4>
-                <p><%= message.text %><p>
-                <%= button_to "delete", {
-                    :controller => :messages, :action => 'destroy', :id => message.id
-                },
-                :method => :delete %>
-              </div>
-            </section>
-          <%end%>
-      </section>
-
-      <section class="floatR cf Vertical-Align">
-        <p class="text_aside2">TELL WHAT YOU WANNA DO TO <br> OTHERS <br> BACK-PACKERS</p>
-        <button class="button_white floatR">Read More</button>
-        <button class="button_color floatR">Sign Up</button>
       </section>
 
     </article>
