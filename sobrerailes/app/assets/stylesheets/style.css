@@ -43,27 +43,15 @@ button {
 	font-style: italic;
 	color: #5A5959;
 }
-
-.landing button {
-	margin-top: 270px;
-	height: 100px;
-	border-bottom-style: none;
-	background-color: rgba(0, 0, 0, 0);
-	border: 0;
-}
 .landing a:hover {
 	color: white;
 	border: 1px solid white;
 }
 .floatR {
-    float: right;
-    margin: 25px 45px;
+  float: right;
 }
 .floatL {
 	float: left;
-}
-.floatR-nonMargin {
-	float: right;
 }
 .button_SignIn {
 	border: solid 1px #696969;
@@ -71,6 +59,14 @@ button {
 	text-decoration:none;
 	color: #696969;
 	letter-spacing: 3px;
+	margin: 25px 45px;
+}
+.arrow_button {
+	margin-top: 270px;
+	height: 100px;
+	border-bottom-style: none;
+	background-color: rgba(0, 0, 0, 0);
+	border: 0;
 }
 nav {
 	height: 100px;
@@ -94,20 +90,23 @@ nav img {
 	padding-right: 30px;
 }
 
-/* ---------------- web sections ------------------ */
+/* ---------------- ARTICLE ------------------ */
 
 .article_style {
 	width: 1200px;
-	height: 850px;
-	margin: auto 160px;
+	height: 800px;
+	margin: 0 auto;
 }
+
+/* ---------------- MAP SECTION -------------- */
+
 .article_style .text_aside {
 	font-family: 'Muli', sans-serif;
 	font-size: 50px;
 	color: white;
 	width: 600px;
 	text-align: left;
-	margin-bottom: 20px;
+/*	margin-bottom: 20px;*/
 }
 
 .article_style .button_white {
@@ -116,19 +115,60 @@ nav img {
 	color: white;
 }
 
-#map_canvas {
+.map_style {
 	width: 550px;
 	height: 550px;
+	margin: 100px 10px;
 }
+
+/* ----------------- INPUT ----------------------- */
+
 .inputContainer {
-	margin: 50px auto;
-	height: 40px;
+	height: 150px;
 	width: 600px;
+	padding: 15px;
 }
-.input {
+.inputContainer input {
+	margin: 5px;
+	border-radius: 6px;
+	border-style: none;
+}
+.inputContainer input:first-child {
 	width: 186px;
 	height: 30px;
-	border-radius: 6px;
+	float: left;
+}
+.inputContainer input:last-child {
+	width: 550px;
+	height: 70px;
+	float: left;
+}
+
+.inputContainer button {
+	margin: 5px;
+	width: 70px;
+	height: 30px;
+	padding: 5px;
+	background-color: #C25151;
+	color: white;
+}
+::-webkit-input-placeholder { /* WebKit browsers */
+   color:    #C25151;
+   text-align: start
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #C25151;
+   text-align: start
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #C25151;
+   text-align: start
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+   color:    #C25151;
+   text-align: start
 }
 
 /* ----------------- MESSAGES -------------------- */
@@ -136,7 +176,6 @@ nav img {
 .contactPanel{
 	width: 600px;
 	height: 600px;
-	background-color: white;
 	overflow: scroll;
 	border-radius: 10px;
 }
@@ -151,6 +190,7 @@ nav img {
 	height: 150px;
 	display: block;
 	text-align: left;
+	font: calibri, sans-serif;
 }
 .textContact{
 	width: 400px;
@@ -163,7 +203,6 @@ nav img {
 }
 .contact h4 {
 	text-align: left;
-	font-family: Goudy Old Style, serif;
 	font-size: 25px;
 	color: #708090;
 	font-style: none;
@@ -179,7 +218,6 @@ nav img {
 }
 .contact p {
 	text-align: left;
-	font-family: Goudy Old Style, serif;
 	line-height: 15px;
 	font-size: 15px;
 	color: #708090;
