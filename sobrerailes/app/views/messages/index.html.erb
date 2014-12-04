@@ -8,28 +8,28 @@
       <h1>
         BAGGERS
       </h1>
-      <p>"Contact with other backpackers, make plans and share your <br> experience during your trip around the world"</p>
+      <p>"You will never trip alone"</p>
       <button class="arrow_button">
-        <a href="index.erb#exactPoint">
-          <%= image_tag("arrow2.png") %>
+        <%= link_to image_tag("arrow2.png"), root_path + "#exactPoint" %>
         </a>
+
       </button>
     </header>
 
 <!-- - - - - - - - NAV -->
     <nav id="exactPoint">
       <ul class="floatL Vertical-Align menu">
-        <li><a href="index.erb">HOME</a></li>
-        <li><a href="http://localhost:3000/map">MAP</a></li>
-        <li><a href="contact.html">CONTACT</a></li>
+        <li><a href="index.erb">/home</a></li>
+        <li><a href="http://localhost:3000/map">/map</a></li>
+        <li><a href="contact.html">/profile</a></li>
       </ul>
       <section class="floatR Vertical-Align cf">
         <a href="outTwitter">
           <%= image_tag("twitter.png") %>
-        </a>
+        ></a>
         <a href="outFacebook">
           <%= image_tag("facebook.png") %>
-        </a>)
+        ></a>
       </section>
     </nav>
 
@@ -39,7 +39,7 @@
         <section class="floatL cf Vertical-Align">
           <p class="text_aside">BACK-PACKERS YOU CAN
           MEET THROUGH BAGGERS</p>
-          <button class="button_color">Sign Up</button>
+          <button>Sign Up</button>
           <button class="button_white">Read More</button>
         </section>
         <div id="map_canvas" class="map_style floatR"></div>
