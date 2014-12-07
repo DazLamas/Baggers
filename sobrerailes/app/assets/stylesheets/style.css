@@ -80,7 +80,7 @@ nav ul {
 	margin-left: 180px;
 }
 li {
-	color: #C25151;
+	color: white;
 	display: inline-block;
 	letter-spacing: 3px;
 	padding: 20px;
@@ -103,10 +103,13 @@ nav section {
 }
 
 article:nth-child(even){
-	background-color: coral;
+	/*background-color: coral;*/
+	background: url('/assets/backpacker-road.jpg');
+	background-position: 50% 50%;
 }
 article:nth-child(odd){
-	background-color: dodgerblue;
+	/*background-color: dodgerblue;*/
+	background: url('/assets/beach-bikes.jpg');
 	height: 900px;
 }
 
