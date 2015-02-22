@@ -33,7 +33,7 @@ function initialize() {
 			});
 	 	});
 
-	 	// @JAVI_BORRACHO_TODAVIA_ES_CAPAZ_DE_DIFERENCIAR: FUNCIONES: camelCase VARIABLES: camel_case
+	 	// @JAVI_BORRACHO_TODAVIA_ES_CAPAZ_DE_DIFERENCIAR: FUNCIONES: camelCase VARIABLES: snake_case
 		var marker = new google.maps.Marker({ position: latLng, map: map});
 
 		var infowindow = new google.maps.InfoWindow({

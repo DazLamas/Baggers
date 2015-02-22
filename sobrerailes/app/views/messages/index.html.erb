@@ -17,7 +17,7 @@
     </header>
 
 <!-- - - - - - - - NAV -->
-    <nav id="exactPoint">
+    <!-- <nav id="exactPoint">
       <ul class="floatL Vertical-Align menu">
         <li><a href="index.erb">/home</a></li>
         <li><a href="http://localhost:3000/map">/map</a></li>
@@ -31,23 +31,27 @@
           <%= image_tag("facebook.png") %>
         ></a>
       </section>
-    </nav>
+    </nav> -->
 
 <!-- - - - - - - - SECTION 1 -->
     <article>
+      <div id="exactPoint"></div>
       <section class="section_style">
         <section class="floatL cf Vertical-Align">
-          <p class="text_aside1">BACK-PACKERS YOU CAN
+          <p class="text_aside">BACK PACKERS YOU CAN
           MEET THROUGH BAGGERS</p>
           <button>Sign Up</button>
-          <button class="button_white">Read More</button>
+          <button class="button_white">
+            <%= link_to 'Read More', root_path + "#exactPoint2" %>
+          </button>
         </section>
         <div id="map_canvas" class="map_style floatR"></div>
       </section>
     </article>
 <!-- - - - - - - - SECTION 2 -->
     <article>
-      <section class="section_style">
+      <div id="exactPoint2"></div>
+      <section class="section_style cf Vertical-Align">
 
         <!-- input data -->
         <section class="contactPanel floatL cf Vertical-Align">
@@ -79,15 +83,6 @@
             </div>
           </section>
 
-          <section class="contact">
-            <%= image_tag("avatar3.jpg", class: "avatar floatL Vertical-Align cf") %>
-            <div class="textContact floatR Vertical-Align cf">
-              <h4>Olga</h4>
-              <!-- <h5>Perm</h5> -->
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit necessitatibus.<p>
-            </div>
-          </section>
-
             <% @messages.each do |message| %>
               <section class="contact">
               <img src="avatar_guest.png" class="avatar floatL Vertical-Align cf">
@@ -105,7 +100,7 @@
 
         <section class="floatR cf Vertical-Align">
           <p class="text_aside2">TELL WHAT YOU WANNA DO TO <br> OTHERS <br> BACK-PACKERS</p>
-          <button class="button_white floatR">Read More</button>
+          <button class="button_white2 floatR">Read More</button>
           <button class="button_color floatR">Sign Up</button>
         </section>
 
