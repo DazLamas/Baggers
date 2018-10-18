@@ -1,5 +1,3 @@
-Visit [here] (http://baggers.herokuapp.com/ "Baggers") the app
-
 ###What is Baggers:
 #####Bagger is a web app to connect backpackers who are in Madrid. We provide a geolocation map service to check where are all the users and a message timeline to set hang outs.
 
